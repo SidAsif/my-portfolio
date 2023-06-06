@@ -383,7 +383,7 @@ header {
     margin-bottom: 5px;
 }
 
-.skill_list .skill h4 {
+.skill_list .skill  h4 {
     float: right;
 }
 
@@ -408,7 +408,7 @@ header {
 
 .skill_list .skill .html {
     width: 95%;
-    animation: html 5s;
+    animation: html 5s forwards;
     /* animation-duration: 20s; */
 
 }
@@ -424,9 +424,10 @@ header {
     }
 }
 
+
 .skill_list .skill .css {
     width: 80%;
-    animation: css 5s;
+    animation: css 5s forwards;
 }
 
 @keyframes css {
@@ -441,7 +442,7 @@ header {
 
 .skill_list .skill .JavaScript {
     width: 70%;
-    animation: js 5s;
+    animation: js 5s forwards;
 }
 
 @keyframes js {
@@ -456,7 +457,7 @@ header {
 
 .skill_list .skill .c_plus {
     width: 70%;
-    animation: c_plus 5s;
+    animation: c_plus 5s forwards;
 }
 
 @keyframes c_plus {
@@ -471,7 +472,7 @@ header {
 
 .skill_list .skill .C {
     width: 85%;
-    animation: C 5s;
+    animation: C 5s forwards;
 }
 
 @keyframes C {
