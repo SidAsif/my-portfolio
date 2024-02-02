@@ -49,7 +49,7 @@ icon.onclick = function () {
     icon.src = "Images/sun.png";
     hero_img.src = "Images/output-onlinegiftools.gif";
     for (var i = 0; i < text.length; i++) {
-      text[i].style.color = "#0ef";
+      text[i].style.color = "#eb455f";
     }
   } else {
     icon.src = "Images/moon.png";
