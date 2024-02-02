@@ -535,8 +535,8 @@ header {
 }
 
 .project_logo {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   object-fit: cover;
   padding: 7px;
   border-radius: 100%;
@@ -552,7 +552,7 @@ header {
 .Description {
   margin-top: 10px;
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .project_body .project_thumbnail {
@@ -565,6 +565,37 @@ header {
 .project_thumbnail img {
   width: 22rem;
   border-radius: 10px;
+}
+.project_thumbnail {
+  position: relative;
+  display: inline-block;
+}
+
+.play-button {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  transform: translate(-50%, -50%);
+  background-color: #eb455f;
+  border-radius: 50%;
+  padding-left: 19px;
+  padding-top: 14px;
+}
+
+.play-button a {
+  color: white;
+  text-decoration: none;
+}
+.play-button:hover {
+  background-color: #ffffff;
+}
+.play-button a:hover {
+  color: black !important;
+}
+.fa-play {
+  font-size: 24px;
 }
 
 .project_footer {
@@ -979,7 +1010,7 @@ header {
   }
 
   .project_thumbnail img {
-    width: 18rem;
+    width: 17rem;
     border-radius: 9px;
   }
 }

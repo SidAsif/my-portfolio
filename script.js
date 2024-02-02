@@ -14,7 +14,7 @@ toggleBtn.onclick = function () {
 
 //hero content
 var typed = new Typed(".role", {
-  strings: ["Frontend Developer.", "Software Developer."],
+  strings: ["Frontend Developer.", "Frontend Developer."],
   typeSpeed: 100,
   backSpeed: 100,
   backDelay: 1000,
