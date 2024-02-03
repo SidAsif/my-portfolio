@@ -573,7 +573,7 @@ header {
 
 .play-button {
   position: absolute;
-  top: 58%;
+  top: 59%;
   left: 50%;
   width: 52px;
   height: 52px;
@@ -1010,7 +1010,10 @@ header {
   }
 
   .project_thumbnail img {
-    width: 17rem;
+    width: 16rem;
     border-radius: 9px;
+  }
+  .play-button {
+    top: 68%;
   }
 }
