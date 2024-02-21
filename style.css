@@ -1023,6 +1023,7 @@ header {
   /* scroll btn */
   #scrollToTopBtn {
     bottom: 150px;
+    scroll-behavior: smooth;
   }
 }
 
