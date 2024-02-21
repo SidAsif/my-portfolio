@@ -59,40 +59,52 @@ icon.onclick = function () {
   }
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-  var timelineSection = document.getElementById("timeline");
-  var timelineLine = document.querySelector("#timeline::after");
+// Number of projects per page
+var currentPage = 1;
+var projects = document.querySelectorAll(".grid-item");
 
-  function isInViewport(element) {
-    var rect = element.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
+function showPage(page) {
+  var projectsPerPage = getProjectsPerPage();
+  var startIndex = (page - 1) * projectsPerPage;
+  var endIndex = startIndex + projectsPerPage;
 
-  function resetLineAnimation() {
-    // Resetting the animation by setting animation to none and then back to moveline
-    console.log("Resetting line animation");
-    timelineLine.style.animation = "none";
-    void timelineLine.offsetWidth; // Trigger reflow
-    timelineLine.style.animation = "moveline 4s linear";
-  }
-
-  function checkTimelineInView() {
-    if (isInViewport(timelineSection)) {
-      resetLineAnimation();
-      // Remove the scroll event listener once the timeline section is in view
-      window.removeEventListener("scroll", checkTimelineInView);
+  projects.forEach(function (project, index) {
+    if (index >= startIndex && index < endIndex) {
+      project.style.display = "block";
+    } else {
+      project.style.display = "none";
     }
+  });
+}
+
+function goToPreviousPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    showPage(currentPage);
   }
+}
 
-  // Initial check when the page loads
-  checkTimelineInView();
+function goToNextPage() {
+  var totalPages = Math.ceil(projects.length / getProjectsPerPage());
+  if (currentPage < totalPages) {
+    currentPage++;
+    showPage(currentPage);
+  }
+}
 
-  // Check timeline visibility on scroll
-  window.addEventListener("scroll", checkTimelineInView);
+function getProjectsPerPage() {
+  // Set projects per page dynamically based on screen size
+  return window.innerWidth <= 570 ? 1 : 3;
+}
+
+// Show the first page initially
+showPage(currentPage);
+
+// Attach event listeners to pagination buttons
+document.getElementById("prevPage").addEventListener("click", goToPreviousPage);
+document.getElementById("nextPage").addEventListener("click", goToNextPage);
+
+// Update the number of projects per page when the window is resized
+window.addEventListener("resize", function () {
+  showPage(currentPage);
 });

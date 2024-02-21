@@ -608,7 +608,39 @@ header {
   gap: 6px;
   cursor: pointer;
 }
+/* pagination */
 
+#pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+#pagination button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #eb455f;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#pagination button:hover {
+  background-color: #323946;
+}
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  #pagination {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #pagination button {
+    margin: 10px 10px;
+    padding: 10px 20px;
+  }
+}
 /* Timeline */
 #timeline {
   background: var(--secondary-bg-color);
