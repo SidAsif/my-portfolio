@@ -44,11 +44,14 @@ a:hover {
 
 /* Header */
 header {
-  position: relative;
-  padding: 1.5rem 2rem;
-  background: var(--primary-bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
+  background-color: #ffffff; 
+  padding: 10px 20px; /
 }
-
 .navbar {
   width: 100%;
   height: 60px;
@@ -168,7 +171,7 @@ header {
 /* Hero */
 
 #hero {
-  padding: 149px 150px 220px 150px;
+  padding: 210px 150px 220px 150px;
   background: var(--primary-bg-color);
   position: relative;
   min-height: 30vh;
@@ -391,7 +394,23 @@ header {
   border-radius: 15px;
   background: var(--main-color);
 }
-
+/*new css  */
+/* Ensure that the fill-bar animation is applied properly */
+.fill-bar {
+  animation: fillAnimation 10s forwards;
+}
+.animate {
+  animation: fillAnimation 10s forwards;
+}
+@keyframes fillAnimation {
+  from {
+      width: 0;
+  }
+  to {
+      width: var(--fill-width);
+  }
+}
+/*  */
 .skill_list .skill .c {
   width: 90%;
   animation: c 5s forwards;
@@ -522,11 +541,31 @@ header {
   z-index: 0;
   position: relative;
   transition: all 1s;
+
+  
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -27px;
+    right: -16px;
+    background: #EB455F;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.5s ease-out;
+  }
+
+  &:hover:before {
+    transform: scale(36);
+  }
 }
-.grid-item:hover {
-  transform: scale(1.1); /* Scale up by 10% on hover */
-  transition: transform 0.3s ease; /* Add smooth transition effect */
-}
+/* .grid-item:hover {
+  transform: scale(1.1); 
+  transition: transform 0.3s ease; 
+} */
 
 .project_head {
   display: flex;
@@ -550,9 +589,9 @@ header {
 }
 
 .Description {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  font-weight: 400;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 450;
 }
 
 .project_body .project_thumbnail {
@@ -560,17 +599,19 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .project_thumbnail img {
   width: 22rem;
+  height: 250px !important;
   border-radius: 10px;
 }
 .project_thumbnail {
   position: relative;
   display: inline-block;
 }
-
+/* 
 .play-button {
   position: absolute;
   top: 59%;
@@ -596,7 +637,7 @@ header {
 }
 .fa-play {
   font-size: 24px;
-}
+} */
 
 .project_footer {
   margin-top: 17px;
@@ -607,6 +648,36 @@ header {
   align-items: center;
   gap: 6px;
   cursor: pointer;
+}
+/*  */
+.project_body .Description {
+  display: none;
+}
+
+.grid-item:hover .Description {
+  /* color: #e4e7e7; */
+  display: block;
+}
+
+.grid-item:hover .project_thumbnail {
+  display: none;
+}
+.grid-item:hover .project_head {
+  margin-top: 50px;
+}
+.grid-item-link:hover {
+  color: black !important;
+}
+.project_footer :hover{
+  color: black !important; /* Change to your desired hover color */
+}
+.grid-item:hover{
+  p {
+    transition: all 0.3s ease-out;
+  }
+  h3 {
+    transition: all 0.3s ease-out;
+  }
 }
 /* pagination */
 
@@ -639,6 +710,9 @@ header {
   #pagination button {
     margin: 10px 10px;
     padding: 10px 20px;
+  }
+  .grid-item:hover .project_head {
+    margin-top: 30px;
   }
 }
 /* Timeline */
@@ -944,7 +1018,7 @@ header {
 
   /* hero section */
   #hero {
-    padding: 80px 150px 100px 150px;
+    padding: 130px 150px 100px 150px;
   }
 
   .textbox {

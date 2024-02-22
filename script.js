@@ -2,10 +2,7 @@
 const toggleBtn = document.querySelector(".toggle_btn");
 const toggleBtnIcon = document.querySelector(".toggle_btn i");
 const dropDownMenu = document.querySelector(".dropdown_menu");
-// let skills = document.getElementsByClassName("skill_list")[0];
-// setTimeout(() => {
-//     skills.style.display="block"
-// }, 2000);
+
 toggleBtn.onclick = function () {
   dropDownMenu.classList.toggle("open");
   const isOpen = dropDownMenu.classList.contains("open");
@@ -20,6 +17,7 @@ var typed = new Typed(".role", {
   backDelay: 1000,
   loop: true,
 });
+//
 
 //  data-aos
 AOS.init({
@@ -108,3 +106,36 @@ document.getElementById("nextPage").addEventListener("click", goToNextPage);
 window.addEventListener("resize", function () {
   showPage(currentPage);
 });
+
+// skill animation
+// Function to observe the skill section
+function observeSkillSection() {
+  const mySkillsSection = document.querySelector("#my_skills");
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5, // Change the threshold as per your requirement
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        startFillAnimation(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  observer.observe(mySkillsSection);
+}
+
+// Function to start the fill-bar animation
+function startFillAnimation(section) {
+  const fillBars = section.querySelectorAll(".fill-bar");
+  fillBars.forEach((fillBar) => {
+    fillBar.classList.add("animate");
+  });
+}
+
+observeSkillSection();
