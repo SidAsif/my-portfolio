@@ -41,6 +41,8 @@ scrollToTopBtn.addEventListener("click", scrollToTop);
 var icon = document.getElementById("icon");
 var text = document.querySelectorAll(".text");
 var hero_img = document.getElementById("hero-img");
+var header = document.getElementById("header");
+
 icon.onclick = function () {
   document.body.classList.toggle("dark-theme");
   if (document.body.classList.contains("dark-theme")) {
@@ -49,11 +51,14 @@ icon.onclick = function () {
     for (var i = 0; i < text.length; i++) {
       text[i].style.color = "#eb455f";
     }
+    header.style.backgroundColor = "#1f242d"; // Change to the desired color
+    header.style.color = "#ffffff";
   } else {
     icon.src = "Images/moon.png";
     for (var i = 0; i < text.length; i++) {
       text[i].style.color = "#EB455F";
     }
+    header.style.backgroundColor = "#ffffff"; // Change to the desired color
   }
 };
 
@@ -107,7 +112,6 @@ window.addEventListener("resize", function () {
   showPage(currentPage);
 });
 
-// skill animation
 // Function to observe the skill section
 function observeSkillSection() {
   const mySkillsSection = document.querySelector("#my_skills");
@@ -129,7 +133,6 @@ function observeSkillSection() {
 
   observer.observe(mySkillsSection);
 }
-
 // Function to start the fill-bar animation
 function startFillAnimation(section) {
   const fillBars = section.querySelectorAll(".fill-bar");

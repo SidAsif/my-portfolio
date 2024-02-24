@@ -396,11 +396,8 @@ header {
 }
 /*new css  */
 /* Ensure that the fill-bar animation is applied properly */
-.fill-bar {
-  animation: fillAnimation 10s forwards;
-}
-.animate {
-  animation: fillAnimation 10s forwards;
+.skill_list .skill.animate .fill-bar {
+  animation: fillAnimation 2s forwards;
 }
 @keyframes fillAnimation {
   from {
@@ -549,7 +546,7 @@ header {
     z-index: -1;
     top: -27px;
     right: -16px;
-    background: #EB455F;
+    background:  #8f959f;
     height: 32px;
     width: 32px;
     border-radius: 32px;
@@ -685,7 +682,7 @@ header {
   display: flex;
   justify-content: center;
   margin-top: -5px;
-  margin-bottom: 10px;
+  padding-bottom: 31px;
 }
 
 #pagination button {
@@ -842,7 +839,7 @@ header {
   background: var(--secondary-bg-color);
   color: var(--text-color);
   position: relative;
-  padding: 100px 150px 20px 150px;
+  padding: 65px 150px 20px 150px;
 }
 
 .contact-container {
