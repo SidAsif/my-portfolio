@@ -132,7 +132,7 @@ header {
   display: none;
   top: 60px;
   height: 0;
-  /* width: 300px; */
+  width: 300px;
   background: var(--secondary-bg-color);
   backdrop-filter: blur(15px);
   border-radius: 5px;
@@ -162,7 +162,6 @@ header {
 }
 
 .dropdown_menu img {
-  border-radius: 50%;
   height: 35px;
   width: 35px;
   
