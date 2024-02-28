@@ -135,13 +135,19 @@ header {
   width: 300px;
   background: var(--secondary-bg-color);
   backdrop-filter: blur(15px);
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
 }
 
 .dropdown_menu.open {
+  position: absolute;
+  left: 265px;
+  top: 77px ;
   height: 300px;
+  width: 100px;
+  opacity:0.8;
 }
 
 .dropdown_menu li {
