@@ -27,9 +27,9 @@ html {
 }
 
 .dark-theme {
-  --primary-bg-color: #1f242d;
-  --secondary-bg-color: #323946;
-  --main-color: #eb455f;
+  --primary-bg-color: #212830;
+  --secondary-bg-color: #171C23;
+  --main-color: #08C391;
   --text-color: white;
 }
 
@@ -579,7 +579,10 @@ header {
     z-index: -1;
     top: -27px;
     right: -16px;
-    background:  #8f959f;
+   /* background: rgb(2,0,36);
+background: linear-gradient(33deg, rgba(2,0,36,1) 0%, rgba(32,255,195) 100%); */
+background: rgb(41,45,62);
+background: linear-gradient(33deg,rgba(41,45,62,1)   0%, rgba(235,69,95,1)100%);
     height: 32px;
     width: 32px;
     border-radius: 32px;
@@ -681,6 +684,7 @@ header {
 }
 /*  */
 .project_body .Description {
+  color: #e4e7e7;
   display: none;
 }
 
@@ -693,6 +697,8 @@ header {
   display: none;
 }
 .grid-item:hover .project_head {
+  /* color: #e4e7e7; */
+
   margin-top: 50px;
 }
 .grid-item-link:hover {
@@ -721,7 +727,7 @@ header {
 #pagination button {
   padding: 10px 20px;
   margin: 0 10px;
-  background-color: #eb455f;
+  /* background-color: #eb455f; */
   color: white;
   border: none;
   border-radius: 3px;
@@ -1040,10 +1046,7 @@ header {
 
   #icon {
     display: none;
-    /* position: relative;
-    width: 30px;
-    cursor: pointer;
-    left: 27px; */
+    
   }
 
   /* hero section */

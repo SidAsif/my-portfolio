@@ -42,6 +42,22 @@ var icon = document.getElementById("icon");
 var text = document.querySelectorAll(".text");
 var hero_img = document.getElementById("hero-img");
 var header = document.getElementById("header");
+var prevButton = document.getElementById("prevPage");
+var nextButton = document.getElementById("nextPage");
+
+// Function to handle hover effect
+function handleHover(event) {
+  event.target.style.backgroundColor = "#292D3E";
+}
+
+// Function to handle mouseout event
+function handleMouseOut(event, color) {
+  event.target.style.backgroundColor = color; // Reset to default background color
+}
+
+// Set initial button colors
+prevButton.style.backgroundColor = "#EB455F";
+nextButton.style.backgroundColor = "#EB455F";
 
 icon.onclick = function () {
   document.body.classList.toggle("dark-theme");
@@ -49,18 +65,44 @@ icon.onclick = function () {
     icon.src = "Images/sun.png";
     hero_img.src = "Images/output-onlinegiftools.gif";
     for (var i = 0; i < text.length; i++) {
-      text[i].style.color = "#eb455f";
+      text[i].style.color = "#08C391";
     }
     header.style.backgroundColor = "#1f242d"; // Change to the desired color
     header.style.color = "#ffffff";
+    prevButton.style.backgroundColor = "#08C391";
+    nextButton.style.backgroundColor = "#08C391";
   } else {
     icon.src = "Images/moon.png";
     for (var i = 0; i < text.length; i++) {
       text[i].style.color = "#EB455F";
     }
-    header.style.backgroundColor = "#ffffff"; // Change to the desired color
+    header.style.backgroundColor = "#ffffff";
+    prevButton.style.backgroundColor = "#EB455F";
+    nextButton.style.backgroundColor = "#EB455F";
   }
 };
+
+// Add event listeners for hover effect
+prevButton.addEventListener("mouseover", function (event) {
+  handleHover(event);
+});
+nextButton.addEventListener("mouseover", function (event) {
+  handleHover(event);
+});
+
+// Add event listeners for mouseout effect
+prevButton.addEventListener("mouseout", function (event) {
+  var color = document.body.classList.contains("dark-theme")
+    ? "#08C391"
+    : "#EB455F";
+  handleMouseOut(event, color);
+});
+nextButton.addEventListener("mouseout", function (event) {
+  var color = document.body.classList.contains("dark-theme")
+    ? "#08C391"
+    : "#EB455F";
+  handleMouseOut(event, color);
+});
 
 // Number of projects per page
 var currentPage = 1;
