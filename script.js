@@ -44,6 +44,7 @@ var hero_img = document.getElementById("hero-img");
 var header = document.getElementById("header");
 var prevButton = document.getElementById("prevPage");
 var nextButton = document.getElementById("nextPage");
+const gridItems = document.querySelectorAll(".grid-item");
 
 // Function to handle hover effect
 function handleHover(event) {
@@ -71,6 +72,14 @@ icon.onclick = function () {
     header.style.color = "#ffffff";
     prevButton.style.backgroundColor = "#08C391";
     nextButton.style.backgroundColor = "#08C391";
+    document.documentElement.style.setProperty(
+      "--light-gradient1",
+      "rgba(2,0,36,1)"
+    );
+    document.documentElement.style.setProperty(
+      "--light-gradient2",
+      "rgba(32,255,195,1)"
+    );
   } else {
     icon.src = "Images/moon.png";
     for (var i = 0; i < text.length; i++) {
@@ -79,6 +88,14 @@ icon.onclick = function () {
     header.style.backgroundColor = "#ffffff";
     prevButton.style.backgroundColor = "#EB455F";
     nextButton.style.backgroundColor = "#EB455F";
+    document.documentElement.style.setProperty(
+      "--light-gradient1",
+      "rgba(41,45,62,1))"
+    );
+    document.documentElement.style.setProperty(
+      "--light-gradient2",
+      "rgba(235,69,95,1)"
+    );
   }
 };
 
