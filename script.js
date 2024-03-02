@@ -80,6 +80,10 @@ icon.onclick = function () {
       "--light-gradient2",
       "rgba(32,255,195,1)"
     );
+    document.documentElement.style.setProperty(
+      "--scrollbar-thumb-color",
+      "#08C391"
+    );
   } else {
     icon.src = "Images/moon.png";
     for (var i = 0; i < text.length; i++) {
@@ -95,6 +99,10 @@ icon.onclick = function () {
     document.documentElement.style.setProperty(
       "--light-gradient2",
       "rgba(235,69,95,1)"
+    );
+    document.documentElement.style.setProperty(
+      "--scrollbar-thumb-color",
+      "#EB455F"
     );
   }
 };
@@ -201,3 +209,16 @@ function startFillAnimation(section) {
 }
 
 observeSkillSection();
+
+// loader
+document.addEventListener("DOMContentLoaded", function () {
+  var loader = document.querySelector(".loader");
+  loader.style.display = "block";
+
+  setTimeout(function () {
+    loader.style.display = "none";
+
+    var content = document.getElementById("details");
+    content.style.display = "block";
+  }, 2500);
+});
