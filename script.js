@@ -1,3 +1,15 @@
+// loader
+document.addEventListener("DOMContentLoaded", function () {
+  var loader = document.querySelector(".loader");
+  loader.style.display = "block";
+
+  setTimeout(function () {
+    loader.style.display = "none";
+
+    var content = document.getElementById("details");
+    content.style.display = "block";
+  }, 2500);
+});
 // sidebar
 const toggleBtn = document.querySelector(".toggle_btn");
 const toggleBtnIcon = document.querySelector(".toggle_btn i");
@@ -107,29 +119,38 @@ icon.onclick = function () {
   }
 };
 
-// Add event listeners for hover effect
-prevButton.addEventListener("mouseover", function (event) {
-  handleHover(event);
-});
-nextButton.addEventListener("mouseover", function (event) {
-  handleHover(event);
-});
+// Function to observe the skill section
+function observeSkillSection() {
+  const mySkillsSection = document.querySelector("#my_skills");
 
-// Add event listeners for mouseout effect
-prevButton.addEventListener("mouseout", function (event) {
-  var color = document.body.classList.contains("dark-theme")
-    ? "#08C391"
-    : "#EB455F";
-  handleMouseOut(event, color);
-});
-nextButton.addEventListener("mouseout", function (event) {
-  var color = document.body.classList.contains("dark-theme")
-    ? "#08C391"
-    : "#EB455F";
-  handleMouseOut(event, color);
-});
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5, // Change the threshold as per your requirement
+  };
 
-// Number of projects per page
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        startFillAnimation(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  observer.observe(mySkillsSection);
+}
+// Function to start the fill-bar animation
+function startFillAnimation(section) {
+  const fillBars = section.querySelectorAll(".fill-bar");
+  fillBars.forEach((fillBar) => {
+    fillBar.classList.add("animate");
+  });
+}
+
+observeSkillSection();
+
+// pagination
 var currentPage = 1;
 var projects = document.querySelectorAll(".grid-item");
 
@@ -163,8 +184,7 @@ function goToNextPage() {
 }
 
 function getProjectsPerPage() {
-  // Set projects per page dynamically based on screen size
-  return window.innerWidth <= 570 ? 1 : 3;
+  return window.innerWidth <= 768 ? 1 : 3;
 }
 
 // Show the first page initially
@@ -177,48 +197,4 @@ document.getElementById("nextPage").addEventListener("click", goToNextPage);
 // Update the number of projects per page when the window is resized
 window.addEventListener("resize", function () {
   showPage(currentPage);
-});
-
-// Function to observe the skill section
-function observeSkillSection() {
-  const mySkillsSection = document.querySelector("#my_skills");
-
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5, // Change the threshold as per your requirement
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        startFillAnimation(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, options);
-
-  observer.observe(mySkillsSection);
-}
-// Function to start the fill-bar animation
-function startFillAnimation(section) {
-  const fillBars = section.querySelectorAll(".fill-bar");
-  fillBars.forEach((fillBar) => {
-    fillBar.classList.add("animate");
-  });
-}
-
-observeSkillSection();
-
-// loader
-document.addEventListener("DOMContentLoaded", function () {
-  var loader = document.querySelector(".loader");
-  loader.style.display = "block";
-
-  setTimeout(function () {
-    loader.style.display = "none";
-
-    var content = document.getElementById("details");
-    content.style.display = "block";
-  }, 2500);
 });

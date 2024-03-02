@@ -287,9 +287,35 @@ header {
   color: var(--text-color);
   font-weight: 500;
 }
+.img-box{
+  width: 45%;
+  height: 70%;
+  position: absolute;
+  bottom: 130px;
+  right: 100px;
+}
+.img-box img{
+height: 100%;
+position: absolute;
+left: 50%;
+bottom: 0;
+transform: translateX(-50%);
+transition: bottom 1s,left 1s;
+}
+/* .img-box:hover #back-img{
+  bottom: 40px;
+} */
+.img-box:hover #hero-img{
+  left: 54%;
+ 
 
+}
 #hero-img {
-  width: 600px;
+  height: 450px;
+  bottom: 35px;
+}
+#back-img{
+  height: 500px;
 }
 
 .textbox .btn {
@@ -401,9 +427,10 @@ header {
     left: 14px;
   }
 
-  #hero-img {
+  .img-box{
     display: none;
   }
+
 }
 
 @media (min-width: 800px) and (max-width: 1290px) {
@@ -784,7 +811,6 @@ background: linear-gradient(33deg,var(--light-gradient1)   0%,var(--light-gradie
 #pagination button {
   padding: 10px 20px;
   margin: 0 10px;
-  /* background-color: #eb455f; */
   color: white;
   border: none;
   border-radius: 3px;
