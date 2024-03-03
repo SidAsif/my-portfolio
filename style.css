@@ -307,8 +307,6 @@ transition: bottom 1s,left 1s;
 } */
 .img-box:hover #hero-img{
   left: 54%;
- 
-
 }
 #hero-img {
   height: 450px;
