@@ -186,11 +186,11 @@ opacity: 1;
   cursor: pointer;
   transition: scale 0.2 ease;
   opacity: 0;
-  animation: slideTop .5s ease forwards;
+  animation: slideLeft .5s ease forwards;
 }
 #icon{
   opacity: 0;
-  animation: slideTop .5s ease forwards;
+  animation: slideLeft .5s ease forwards;
 }
 .action_btn:hover {
   scale: 1.05;
