@@ -197,9 +197,11 @@ window.addEventListener("resize", function () {
 
 // float
 document.querySelector(".floating-btn").addEventListener("click", function () {
-  document.querySelector(".element-container").classList.toggle("open");
-});
-document.querySelector(".floating-btn").addEventListener("click", function () {
-  // Add a class to the floating container
-  document.querySelector(".floating-container").classList.add("expanded");
+  var elementContainer = document.querySelector(".element-container");
+
+  // Toggle the 'open' class on element-container
+  elementContainer.classList.toggle("open");
+
+  // Toggle the 'expanded' class on floating-container based on the presence of 'open' class
+  document.querySelector(".floating-container").classList.toggle("expanded");
 });
