@@ -50,14 +50,16 @@ function scrollToTop() {
 scrollToTopBtn.addEventListener("click", scrollToTop);
 
 //--------------Dark mode & light mode --------------
-var icon = document.getElementById("icon");
 var text = document.querySelectorAll(".text");
 var hero_img = document.getElementById("hero-img");
 var header = document.getElementById("header");
 var prevButton = document.getElementById("prevPage");
 var nextButton = document.getElementById("nextPage");
 const gridItems = document.querySelectorAll(".grid-item");
-
+var modeToggle = document.getElementById("modeToggle");
+var moonIcon = document.querySelector(".fa-solid.fa-moon");
+var sunIcon = document.querySelector(".fa-solid.fa-sun");
+var floatbtn = document.querySelector(".floating-btn");
 // Function to handle hover effect
 function handleHover(event) {
   event.target.style.backgroundColor = "#292D3E";
@@ -72,15 +74,19 @@ function handleMouseOut(event, color) {
 prevButton.style.backgroundColor = "#EB455F";
 nextButton.style.backgroundColor = "#EB455F";
 
-icon.onclick = function () {
+modeToggle.onclick = function () {
   document.body.classList.toggle("dark-theme");
+
   if (document.body.classList.contains("dark-theme")) {
-    icon.src = "Images/sun.png";
+    // Dark mode
+    floatbtn.style.backgroundColor = "#08c391";
+    floatbtn.style.boxShadow = "0 10px 25px -5px rgba(32, 255, 195)";
+
     hero_img.src = "Images/output-onlinegiftools.gif";
     for (var i = 0; i < text.length; i++) {
       text[i].style.color = "#08C391";
     }
-    header.style.backgroundColor = "#1f242d"; // Change to the desired color
+    header.style.backgroundColor = "#1f242d";
     header.style.color = "#ffffff";
     prevButton.style.backgroundColor = "#08C391";
     nextButton.style.backgroundColor = "#08C391";
@@ -96,8 +102,13 @@ icon.onclick = function () {
       "--scrollbar-thumb-color",
       "#08C391"
     );
+
+    moonIcon.style.display = "none";
+    sunIcon.style.display = "inline";
   } else {
-    icon.src = "Images/moon.png";
+    // Light mode
+    floatbtn.style.backgroundColor = "#eb455f";
+    floatbtn.style.boxShadow = "";
     for (var i = 0; i < text.length; i++) {
       text[i].style.color = "#EB455F";
     }
@@ -106,7 +117,7 @@ icon.onclick = function () {
     nextButton.style.backgroundColor = "#EB455F";
     document.documentElement.style.setProperty(
       "--light-gradient1",
-      "rgba(41,45,62,1))"
+      "rgba(41,45,62,1)"
     );
     document.documentElement.style.setProperty(
       "--light-gradient2",
@@ -116,9 +127,11 @@ icon.onclick = function () {
       "--scrollbar-thumb-color",
       "#EB455F"
     );
+
+    moonIcon.style.display = "inline";
+    sunIcon.style.display = "none";
   }
 };
-
 // Function to observe the skill section
 function observeSkillSection() {
   const mySkillsSection = document.querySelector("#my_skills");
