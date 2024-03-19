@@ -86,7 +86,7 @@ modeToggle.onclick = function () {
     for (var i = 0; i < text.length; i++) {
       text[i].style.color = "#08C391";
     }
-    header.style.backgroundColor = "#1f242d";
+    header.style.backgroundColor = "#212830";
     header.style.color = "#ffffff";
     prevButton.style.backgroundColor = "#08C391";
     nextButton.style.backgroundColor = "#08C391";
