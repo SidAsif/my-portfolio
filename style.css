@@ -478,8 +478,12 @@ header {
     margin-left: 249px;
     width: 400px;
     left: 5rem;
+    display: none !important;
+    /* may be change in future for display img and make responsive */
   }
-
+  .img-box {
+    display: none !important;
+  }
   #hero {
     padding: 149px 150px 220px 60px;
   }
