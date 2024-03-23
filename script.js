@@ -14,13 +14,22 @@ document.addEventListener("DOMContentLoaded", function () {
 const toggleBtn = document.querySelector(".toggle_btn");
 const toggleBtnIcon = document.querySelector(".toggle_btn i");
 const dropDownMenu = document.querySelector(".dropdown_menu");
-
+const closeBtn = document.querySelector(".close_btn");
+const menuItems = document.querySelectorAll(".dropdown_menu li a");
 toggleBtn.onclick = function () {
   dropDownMenu.classList.toggle("open");
   const isOpen = dropDownMenu.classList.contains("open");
-  toggleBtnIcon.classList = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars ";
 };
-
+closeBtn.onclick = function () {
+  dropDownMenu.classList.remove("open");
+  toggleBtnIcon.classList = "fa-solid fa-bars";
+};
+menuItems.forEach((item) => {
+  item.addEventListener("click", function () {
+    dropDownMenu.classList.remove("open");
+    toggleBtnIcon.classList = "fa-solid fa-bars";
+  });
+});
 //hero content
 var typed = new Typed(".role", {
   strings: ["Frontend Developer.", "Technology Enthusiast."],
@@ -73,7 +82,7 @@ function handleMouseOut(event, color) {
 // Set initial button colors
 prevButton.style.backgroundColor = "#EB455F";
 nextButton.style.backgroundColor = "#EB455F";
-
+closeBtn.style.backgroundColor = "#EB455F";
 modeToggle.onclick = function () {
   document.body.classList.toggle("dark-theme");
 
@@ -89,6 +98,7 @@ modeToggle.onclick = function () {
     header.style.backgroundColor = "#212830";
     header.style.color = "#ffffff";
     prevButton.style.backgroundColor = "#08C391";
+    closeBtn.style.backgroundColor = "#08C391";
     nextButton.style.backgroundColor = "#08C391";
     document.documentElement.style.setProperty(
       "--light-gradient1",
@@ -102,7 +112,7 @@ modeToggle.onclick = function () {
       "--scrollbar-thumb-color",
       "#08C391"
     );
-
+    document.getElementById("svg").setAttribute("data", "wave2.svg");
     moonIcon.style.display = "none";
     sunIcon.style.display = "inline";
   } else {
@@ -115,6 +125,8 @@ modeToggle.onclick = function () {
     header.style.backgroundColor = "#ffffff";
     prevButton.style.backgroundColor = "#EB455F";
     nextButton.style.backgroundColor = "#EB455F";
+    closeBtn.style.backgroundColor = "#EB455F";
+
     document.documentElement.style.setProperty(
       "--light-gradient1",
       "rgba(41,45,62,1)"
@@ -127,7 +139,7 @@ modeToggle.onclick = function () {
       "--scrollbar-thumb-color",
       "#EB455F"
     );
-
+    document.getElementById("svg").setAttribute("data", "wave1.svg");
     moonIcon.style.display = "inline";
     sunIcon.style.display = "none";
   }
@@ -139,7 +151,7 @@ function observeSkillSection() {
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.5, // Change the threshold as per your requirement
+    threshold: 0.5,
   };
 
   const observer = new IntersectionObserver((entries, observer) => {
@@ -153,14 +165,13 @@ function observeSkillSection() {
 
   observer.observe(mySkillsSection);
 }
-// Function to start the fill-bar animation
+
 function startFillAnimation(section) {
   const fillBars = section.querySelectorAll(".fill-bar");
   fillBars.forEach((fillBar) => {
     fillBar.classList.add("animate");
   });
 }
-
 observeSkillSection();
 
 // pagination
@@ -211,10 +222,6 @@ window.addEventListener("resize", function () {
 // float
 document.querySelector(".floating-btn").addEventListener("click", function () {
   var elementContainer = document.querySelector(".element-container");
-
-  // Toggle the 'open' class on element-container
   elementContainer.classList.toggle("open");
-
-  // Toggle the 'expanded' class on floating-container based on the presence of 'open' class
   document.querySelector(".floating-container").classList.toggle("expanded");
 });
