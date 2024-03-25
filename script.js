@@ -69,6 +69,7 @@ var modeToggle = document.getElementById("modeToggle");
 var moonIcon = document.querySelector(".fa-solid.fa-moon");
 var sunIcon = document.querySelector(".fa-solid.fa-sun");
 var floatbtn = document.querySelector(".floating-btn");
+var logoimg = document.getElementById("logo-img");
 // Function to handle hover effect
 function handleHover(event) {
   event.target.style.backgroundColor = "#292D3E";
@@ -115,6 +116,7 @@ modeToggle.onclick = function () {
     document.getElementById("svg").setAttribute("data", "wave2.svg");
     moonIcon.style.display = "none";
     sunIcon.style.display = "inline";
+    logoimg.src = "Images/Untitled_design__2_-removebg-preview.png";
   } else {
     // Light mode
     floatbtn.style.backgroundColor = "#eb455f";
@@ -142,6 +144,7 @@ modeToggle.onclick = function () {
     document.getElementById("svg").setAttribute("data", "wave1.svg");
     moonIcon.style.display = "inline";
     sunIcon.style.display = "none";
+    logoimg.src = "Images/Untitled_design-removebg-preview.png";
   }
 };
 // Function to observe the skill section

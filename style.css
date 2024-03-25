@@ -1452,3 +1452,11 @@ background: linear-gradient(33deg, rgba(2,0,36,1) 0%, rgba(32,255,195) 100%); */
     margin: 0px;
   }
 }
+@media (min-width: 800px) {
+  #logo-img {
+    display: none;
+  }
+  #logo-text {
+    top: -17px !important;
+  }
+}
