@@ -211,7 +211,7 @@ function goToNextPage() {
 }
 
 function getProjectsPerPage() {
-  return window.innerWidth <= 768 ? 1 : 3;
+  return window.innerWidth <= 768 ? 2 : 3;
 }
 
 // Show the first page initially

@@ -690,7 +690,7 @@ header {
 
 .grid-item {
   width: 400px;
-  min-height: 395px;
+  height: 395px;
   background-color: var(--secondary-bg-color);
   border-radius: 25px;
   display: inline-flex;
@@ -846,7 +846,7 @@ header {
     padding: 10px 20px;
   }
   .grid-item:hover .project_head {
-    margin-top: 30px;
+    margin-top: -3px;
   }
 }
 /* Timeline */
@@ -1239,14 +1239,20 @@ header {
 
   .grid-item {
     width: 300px;
+    height: 337px;
   }
 
   .project_thumbnail img {
+    height: 14rem !important;
+    margin-top: -16px;
     width: 16rem;
     border-radius: 9px;
   }
   .play-button {
     top: 68%;
+  }
+  .project_head {
+    margin-top: -12px;
   }
 }
 
