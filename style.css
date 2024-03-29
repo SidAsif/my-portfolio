@@ -772,7 +772,9 @@ header {
 }
 
 .project_footer {
+  display: flex;
   margin-top: 17px;
+  justify-content: space-between;
 }
 
 .project_footer .project_tech {
