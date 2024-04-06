@@ -1458,3 +1458,12 @@ header {
     top: -17px !important;
   }
 }
+/* Custom styles for the Driver.js popover */
+.driver-popover.driverjs-theme {
+  color: #000;
+  margin: -8px;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title {
+  font-size: 20px;
+}
