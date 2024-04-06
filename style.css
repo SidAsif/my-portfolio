@@ -139,7 +139,7 @@ header {
 .navbar .links {
   display: flex;
   position: relative;
-  left: 73px;
+  left: 120px;
   gap: 2rem;
 }
 .links a {
@@ -345,9 +345,6 @@ header {
 #hero-img {
   height: 450px;
   bottom: 35px;
-}
-#back-img {
-  height: 500px;
 }
 
 .textbox .btn {
