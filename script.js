@@ -239,48 +239,11 @@ document.querySelector(".floating-btn").addEventListener("click", function () {
 });
 
 // driver
-const driver = window.driver.js.driver;
-if (window.innerWidth >= 700) {
-  const driverObj = driver({
-    popoverClass: "driverjs-theme",
-    showProgress: true,
-    steps: [
-      {
-        element: ".textbox",
-        popover: {
-          title: "Hey! Welcome to my Portfolio",
-          description:
-            "Explore my work and projects to learn more about what I do.",
-        },
-      },
-      {
-        element: "#mylinks",
-        popover: {
-          title: "Navigation Links",
-          description: "These are the links to navigate through the portfolio.",
-          side: "bottom",
-          align: "center",
-        },
-      },
-      {
-        element: ".action_btn",
-        popover: {
-          title: "Resume",
-          description: "Click here to view my resume ",
-        },
-      },
-    ],
-  });
-
-  function startGuidedTour() {
-    driverObj.drive();
-  }
-
-  setTimeout(startGuidedTour, 2000);
-}
-// else {
-//   const driver = window.driver.js.driver;
+// const driver = window.driver.js.driver;
+// if (window.innerWidth >= 700) {
 //   const driverObj = driver({
+//     popoverClass: "driverjs-theme",
+//     showProgress: true,
 //     steps: [
 //       {
 //         element: ".textbox",
@@ -288,15 +251,22 @@ if (window.innerWidth >= 700) {
 //           title: "Hey! Welcome to my Portfolio",
 //           description:
 //             "Explore my work and projects to learn more about what I do.",
+//         },
+//       },
+//       {
+//         element: "#mylinks",
+//         popover: {
+//           title: "Navigation Links",
+//           description: "These are the links to navigate through the portfolio.",
 //           side: "bottom",
 //           align: "center",
 //         },
 //       },
 //       {
-//         element: ".toggle_btn",
+//         element: ".action_btn",
 //         popover: {
-//           title: "Menu",
-//           description: "Click here to access the mobile menu for navigation.",
+//           title: "Resume",
+//           description: "Click here to view my resume ",
 //         },
 //       },
 //     ],
@@ -308,3 +278,33 @@ if (window.innerWidth >= 700) {
 
 //   setTimeout(startGuidedTour, 2000);
 // }
+// // else {
+// //   const driver = window.driver.js.driver;
+// //   const driverObj = driver({
+// //     steps: [
+// //       {
+// //         element: ".textbox",
+// //         popover: {
+// //           title: "Hey! Welcome to my Portfolio",
+// //           description:
+// //             "Explore my work and projects to learn more about what I do.",
+// //           side: "bottom",
+// //           align: "center",
+// //         },
+// //       },
+// //       {
+// //         element: ".toggle_btn",
+// //         popover: {
+// //           title: "Menu",
+// //           description: "Click here to access the mobile menu for navigation.",
+// //         },
+// //       },
+// //     ],
+// //   });
+
+// //   function startGuidedTour() {
+// //     driverObj.drive();
+// //   }
+
+// //   setTimeout(startGuidedTour, 2000);
+// // }
