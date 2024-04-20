@@ -24,22 +24,30 @@ html {
   max-width: 10em;
   aspect-ratio: 1;
   border-radius: 50%;
-  box-shadow: 0.5em 0.5em  #eb455f;
+  box-shadow: 0.5em 0.5em #eb455f;
   animation-name: rot;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  display: none; 
+  display: none;
+}
+.loader-wrapper {
+  display: none;
 }
 
+@media only screen and (max-width: 600px) {
+  .loader-wrapper {
+    display: block;
+  }
+}
 @keyframes rot {
   to {
-    transform: rotate(360deg); 
+    transform: rotate(360deg);
   }
 } */
 
 /* Hide content initially */
-/* #details{
+/* #details {
   display: none;
 } */
 

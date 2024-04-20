@@ -1,3 +1,12 @@
+const links = document.querySelectorAll(".links a");
+
+links.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    links.forEach((link) => link.classList.remove("active"));
+    event.target.classList.add("active");
+  });
+});
+
 // loader
 document.addEventListener("DOMContentLoaded", function () {
   var loader = document.querySelector(".loader");
