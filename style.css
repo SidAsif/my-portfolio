@@ -218,7 +218,6 @@ header {
   border-radius: 5px;
   overflow: hidden;
   position: fixed;
-
   transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -235,8 +234,8 @@ header {
   top: 80px;
   right: 10px;
   cursor: pointer;
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background-color: #eb455f;
   display: flex;
@@ -263,7 +262,6 @@ header {
   margin: 0;
   list-style: none;
   display: flex;
-
   margin-top: 20%;
 }
 .dropdown-items {
@@ -271,18 +269,49 @@ header {
   top: 22%;
 }
 .dropdown_menu li {
+  margin-left: 20px;
   padding: 0.7rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
-
+.dropdown-items li a i {
+  margin-right: 8px;
+}
 .dropdown_menu .action_btn {
   width: 95vw;
   display: flex;
   justify-content: center;
 }
-
+#drop-line {
+  position: relative;
+  margin-top: 470px;
+  width: 82%;
+  margin-left: 30px;
+  border: 1px solid black;
+}
+/* .resume-list {
+  width: 82vw;
+  background-color: #eb455f;
+  border-radius: 10px;
+  margin-left: -3px;
+  padding: 14px 14px 14px 6px;
+} */
+.drop-contact-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.drop-contact-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.drop-contact-info-text {
+  margin-right: 10px;
+}
 /* Hero */
 
 #hero {
@@ -1463,7 +1492,7 @@ header {
     display: none;
   }
   #logo-text {
-    top: -17px !important;
+    top: 26px !important;
   }
 }
 /* Custom styles for the Driver.js popover */

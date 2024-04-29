@@ -78,7 +78,9 @@ var modeToggle = document.getElementById("modeToggle");
 var moonIcon = document.querySelector(".fa-solid.fa-moon");
 var sunIcon = document.querySelector(".fa-solid.fa-sun");
 var floatbtn = document.querySelector(".floating-btn");
-var logoimg = document.getElementById("logo-img");
+var logoimgs = document.getElementsByClassName("logo-img");
+// var resumedrop = document.getElementsByClassName("resume-list");
+var dropLine = document.getElementById("drop-line");
 // Function to handle hover effect
 function handleHover(event) {
   event.target.style.backgroundColor = "#292D3E";
@@ -110,6 +112,8 @@ modeToggle.onclick = function () {
     prevButton.style.backgroundColor = "#08C391";
     closeBtn.style.backgroundColor = "#08C391";
     nextButton.style.backgroundColor = "#08C391";
+    dropLine.style.borderColor = "white";
+    // resumedrop.style.backgroundColor = "#08C391";
     document.documentElement.style.setProperty(
       "--light-gradient1",
       "rgba(2,0,36,1)"
@@ -125,7 +129,10 @@ modeToggle.onclick = function () {
     document.getElementById("svg").setAttribute("data", "wave2.svg");
     moonIcon.style.display = "none";
     sunIcon.style.display = "inline";
-    logoimg.src = "Images/Untitled_design__2_-removebg-preview.png";
+    for (var i = 0; i < logoimgs.length; i++) {
+      var logoimg = logoimgs[i];
+      logoimg.src = "Images/Untitled_design__2_-removebg-preview.png";
+    }
   } else {
     // Light mode
     floatbtn.style.backgroundColor = "#eb455f";
@@ -137,7 +144,9 @@ modeToggle.onclick = function () {
     prevButton.style.backgroundColor = "#EB455F";
     nextButton.style.backgroundColor = "#EB455F";
     closeBtn.style.backgroundColor = "#EB455F";
+    dropLine.style.borderColor = "black";
 
+    // resumedrop.style.backgroundColor = "#EB455F";
     document.documentElement.style.setProperty(
       "--light-gradient1",
       "rgba(41,45,62,1)"
@@ -153,7 +162,10 @@ modeToggle.onclick = function () {
     document.getElementById("svg").setAttribute("data", "wave1.svg");
     moonIcon.style.display = "inline";
     sunIcon.style.display = "none";
-    logoimg.src = "Images/Untitled_design-removebg-preview.png";
+    for (var i = 0; i < logoimgs.length; i++) {
+      var logoimg = logoimgs[i];
+      logoimg.src = "Images/Untitled_design-removebg-preview.png";
+    }
   }
 };
 // Function to observe the skill section
