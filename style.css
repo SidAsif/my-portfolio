@@ -639,7 +639,7 @@ header {
 }
 
 .skill_list .skill .JavaScript {
-  width: 75%;
+  width: 85%;
   animation: js 5s forwards;
 }
 
@@ -649,12 +649,12 @@ header {
   }
 
   to {
-    width: 75%;
+    width: 85%;
   }
 }
 
 .skill_list .skill .react {
-  width: 75%;
+  width: 85%;
   animation: react 5s forwards;
 }
 
@@ -664,7 +664,7 @@ header {
   }
 
   to {
-    width: 75%;
+    width: 85%;
   }
 }
 
