@@ -154,7 +154,7 @@ header {
   opacity: 0;
   transition: 0.3s;
   animation: slideTop 0.5s ease forwards;
-  animation-delay: calc(0.3s * var(--i));
+  animation-delay: calc(0.4s * var(--i));
 }
 @keyframes slideTop {
   0% {
@@ -550,157 +550,61 @@ header {
   padding: 30px;
   text-align: center;
 }
-
-.skill_list {
-  margin: auto;
-  width: 550px;
-  background: var(--secondary-bg-color);
-  border: 10px;
-  padding: 15px 30px;
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
-
-.skill_list .skill {
-  margin-bottom: 30px;
-  width: 100%;
+.skill-box {
+  background-color: #e4e7e7;
+  border-radius: 8px;
+  box-shadow: 0 7px 15px rgba(235, 69, 95, 0.2);
+  padding: 28px;
+  width: 358px;
+  height: 230px;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+.skill-box h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.icon-wrapper {
+  width: 30%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  position: relative;
+  margin-bottom: 15px;
 }
-
-.skill_list .skill h3 {
-  display: inline-block;
-  margin-bottom: 5px;
+.icon-wrapper i {
+  font-size: 36px;
 }
-
-.skill_list .skill h4 {
-  float: right;
-}
-
-.skill_list .skill .skill_bar {
-  position: absolute;
-  top: 30px;
-  left: 0;
-  width: 100%;
-  height: 17px;
-  border-radius: 15px;
-  background: var(--primary-bg-color);
-}
-
-.skill_list .skill .fill-bar {
-  position: absolute;
-  top: 30px;
-  left: 0;
-  height: 17px;
-  border-radius: 15px;
-  background: var(--main-color);
-}
-/*new css  */
-/* Ensure that the fill-bar animation is applied properly */
-.skill_list .skill.animate .fill-bar {
-  animation: fillAnimation 2s forwards;
-}
-@keyframes fillAnimation {
-  from {
-    width: 0;
-  }
-  to {
-    width: var(--fill-width);
-  }
-}
-/*  */
-.skill_list .skill .c {
-  width: 90%;
-  animation: c 5s forwards;
-  /* animation-duration: 20s; */
-}
-
-@keyframes c {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 90%;
-  }
-}
-
-.skill_list .skill .html {
-  width: 95%;
-  animation: html 5s forwards;
-}
-
-@keyframes html {
-  from {
-    width: 0;
-  }
-
-  to {
+@media (max-width: 768px) {
+  .skill-box {
     width: 95%;
+    margin-bottom: 20px;
   }
 }
-
-.skill_list .skill .JavaScript {
-  width: 85%;
-  animation: js 5s forwards;
+/* Dark theme styles */
+body.dark-theme .skill-box {
+  background-color: #171c23;
+  box-shadow: 0 4px 8px rgba(32, 255, 195, 0.2);
 }
 
-@keyframes js {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 85%;
-  }
+body.dark-theme .icon-wrapper i {
+  color: white;
 }
 
-.skill_list .skill .react {
-  width: 85%;
-  animation: react 5s forwards;
-}
-
-@keyframes react {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 85%;
-  }
-}
-
-.skill_list .skill .ui,
-.figma {
-  width: 85%;
-  animation: ui 5s forwards;
-}
-
-@keyframes ui {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 85%;
-  }
-}
-.skill_list .skill .git {
-  width: 90%;
-  animation: git 5s forwards;
-}
-
-@keyframes git {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 90%;
-  }
-}
-@keyframes anime {
-  100% {
-    stroke-dashoffset: 250;
-  }
+body.dark-theme .icon-wrapper img,
+body.dark-theme .icon-wrapper svg {
+  filter: invert(1) brightness(2);
 }
 
 /* Work */
@@ -1292,20 +1196,8 @@ header {
 }
 
 @media (max-width: 510px) {
-  .skill_list {
-    margin-left: 66px;
-    position: relative;
-    left: -2rem;
-    width: 300px;
-  }
-
   #my_skills {
     padding: 40px 0px 50px 0px;
-  }
-
-  .grid-item {
-    width: 300px;
-    height: 337px;
   }
 
   .project_thumbnail img {
