@@ -1206,7 +1206,10 @@ body.dark-theme .icon-wrapper svg {
   #my_skills {
     padding: 40px 0px 50px 0px;
   }
-
+  .grid-item {
+    width: 310px;
+    height: 337px;
+  }
   .project_thumbnail img {
     height: 14rem !important;
     margin-top: -16px;
