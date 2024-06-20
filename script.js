@@ -79,6 +79,8 @@ var moonIcon = document.querySelector(".fa-solid.fa-moon");
 var sunIcon = document.querySelector(".fa-solid.fa-sun");
 var floatbtn = document.querySelector(".floating-btn");
 var logoimgs = document.getElementsByClassName("logo-img");
+const tooltips = document.querySelectorAll(".contact_icon .tooltip");
+
 // var resumedrop = document.getElementsByClassName("resume-list");
 var dropLine = document.getElementById("drop-line");
 // Function to handle hover effect
@@ -133,6 +135,9 @@ modeToggle.onclick = function () {
       var logoimg = logoimgs[i];
       logoimg.src = "Images/Untitled_design__2_-removebg-preview.png";
     }
+    tooltips.forEach((tooltip) => {
+      tooltip.style.color = "white";
+    });
   } else {
     // Light mode
     floatbtn.style.backgroundColor = "#eb455f";
@@ -166,6 +171,9 @@ modeToggle.onclick = function () {
       var logoimg = logoimgs[i];
       logoimg.src = "Images/Untitled_design-removebg-preview.png";
     }
+    tooltips.forEach((tooltip) => {
+      tooltip.style.color = "black";
+    });
   }
 };
 // Function to observe the skill section

@@ -403,6 +403,7 @@ header {
 
 .contact_icon a {
   display: inline-flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 40px;
@@ -419,6 +420,27 @@ header {
   animation: slideLeft 1s ease forwards;
   animation-delay: calc(0.2s * var(--i));
 }
+.contact_icon .tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* background-color: #282727; */
+  color: black;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.contact_icon a:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
 @keyframes slideLeft {
   0% {
     transform: translateX(100px);
@@ -556,6 +578,7 @@ header {
   justify-content: center;
   gap: 20px;
 }
+
 .skill-box {
   background-color: #e4e7e7;
   border-radius: 8px;
@@ -566,26 +589,37 @@ header {
   text-align: center;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
+
 .skill-box h3 {
   font-size: 24px;
   margin-bottom: 20px;
 }
+
 .icons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
 }
+
 .icon-wrapper {
   width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
+  transition: transform 0.5s ease-in-out;
+  --r: calc(-15deg + (30 * var(--i))); /* Rotation angle based on index */
 }
+
+.icon-wrapper:hover {
+  transform: rotate(0deg) translateY(-10px);
+}
+
 .icon-wrapper i {
   font-size: 36px;
 }
+
 @media (max-width: 768px) {
   .skill-box {
     width: 89%;
@@ -781,9 +815,52 @@ body.dark-theme .icon-wrapper svg {
   border-radius: 3px;
   cursor: pointer;
 }
-#pagination button:hover {
-  background-color: #323946;
+/* next button */
+.btn-class-name {
+  --color: 180, 255, 100;
+  border-radius: 0.5em;
+  transition: 0.3s;
+  background-color: rgba(var(--main-color), 0.2);
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
 }
+
+.btn-class-name:hover {
+  box-shadow: 0 0 0 5px rgba(var(--main-color), 0.5);
+}
+
+.btn-class-name span {
+  transform: scale(0.8);
+  transition: 0.3s;
+}
+
+.btn-class-name:hover span {
+  transform: scale(1);
+}
+
+.btn-class-name svg {
+  font-size: 0;
+  transform: scale(0.5) translateX(0%) rotate(-180deg);
+  transition: 0.3s;
+}
+
+.btn-class-name:hover svg {
+  font-size: 20px;
+  transform: scale(1) translateX(20%) rotate(0deg);
+  fill: #fff;
+  margin-right: 4px !important;
+}
+
+.btn-class-name:active {
+  transition: 0s;
+  box-shadow: 0 0 0 5px #eb455f;
+}
+
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   #pagination {
@@ -1396,13 +1473,4 @@ body.dark-theme .icon-wrapper svg {
   #logo-text {
     top: 26px !important;
   }
-}
-/* Custom styles for the Driver.js popover */
-.driver-popover.driverjs-theme {
-  color: #000;
-  margin: -8px;
-}
-
-.driver-popover.driverjs-theme .driver-popover-title {
-  font-size: 20px;
 }
