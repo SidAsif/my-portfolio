@@ -486,6 +486,7 @@ header {
 
 #para2 {
   font-size: 1.2em;
+  text-align: justify;
 }
 
 .contentbox {
@@ -733,6 +734,8 @@ body.dark-theme .icon-wrapper svg {
   margin-top: 20px;
   font-size: 1rem;
   font-weight: 450;
+  text-align: justify;
+  hyphens: auto;
 }
 
 .project_body .project_thumbnail {

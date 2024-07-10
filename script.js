@@ -8,17 +8,17 @@ links.forEach((link) => {
 });
 
 // loader
-document.addEventListener("DOMContentLoaded", function () {
-  var loader = document.querySelector(".loader");
-  loader.style.display = "block";
+// document.addEventListener("DOMContentLoaded", function () {
+//   var loader = document.querySelector(".loader");
+//   loader.style.display = "block";
 
-  setTimeout(function () {
-    loader.style.display = "none";
+//   setTimeout(function () {
+//     loader.style.display = "none";
 
-    var content = document.getElementById("details");
-    content.style.display = "block";
-  }, 2500);
-});
+//     var content = document.getElementById("details");
+//     content.style.display = "block";
+//   }, 2500);
+// });
 // sidebar
 const toggleBtn = document.querySelector(".toggle_btn");
 const toggleBtnIcon = document.querySelector(".toggle_btn i");
