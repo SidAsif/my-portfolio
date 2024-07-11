@@ -19,6 +19,7 @@ links.forEach((link) => {
 //     content.style.display = "block";
 //   }, 2500);
 // });
+
 // sidebar
 const toggleBtn = document.querySelector(".toggle_btn");
 const toggleBtnIcon = document.querySelector(".toggle_btn i");
@@ -39,6 +40,7 @@ menuItems.forEach((item) => {
     toggleBtnIcon.classList = "fa-solid fa-bars";
   });
 });
+
 //hero content
 var typed = new Typed(".role", {
   strings: ["Frontend Developer.", "Technology Enthusiast."],
@@ -68,54 +70,67 @@ function scrollToTop() {
 scrollToTopBtn.addEventListener("click", scrollToTop);
 
 //--------------Dark mode & light mode --------------
-var text = document.querySelectorAll(".text");
-var hero_img = document.getElementById("hero-img");
-var header = document.getElementById("header");
-var prevButton = document.getElementById("prevPage");
-var nextButton = document.getElementById("nextPage");
+const textElements = document.querySelectorAll(".text");
+const heroImg = document.getElementById("hero-img");
+const header = document.getElementById("header");
+const prevButton = document.getElementById("prevPage");
+const nextButton = document.getElementById("nextPage");
 const gridItems = document.querySelectorAll(".grid-item");
-var modeToggle = document.getElementById("modeToggle");
-var moonIcon = document.querySelector(".fa-solid.fa-moon");
-var sunIcon = document.querySelector(".fa-solid.fa-sun");
-var floatbtn = document.querySelector(".floating-btn");
-var logoimgs = document.getElementsByClassName("logo-img");
+const modeToggle = document.getElementById("modeToggle");
+const moonIcon = document.querySelector(".fa-solid.fa-moon");
+const sunIcon = document.querySelector(".fa-solid.fa-sun");
+const floatBtn = document.querySelector(".floating-btn");
+const logoImgs = document.getElementsByClassName("logo-img");
 const tooltips = document.querySelectorAll(".contact_icon .tooltip");
-var heroimg = document.getElementById("hero-img");
-// var resumedrop = document.getElementsByClassName("resume-list");
-var dropLine = document.getElementById("drop-line");
-// Function to handle hover effect
-function handleHover(event) {
-  event.target.style.backgroundColor = "#292D3E";
-}
+const dropLine = document.getElementById("drop-line");
 
-// Function to handle mouseout event
-function handleMouseOut(event, color) {
-  event.target.style.backgroundColor = color; // Reset to default background color
-}
+const setButtonColor = (buttons, color) => {
+  buttons.forEach((button) => (button.style.backgroundColor = color));
+};
 
 // Set initial button colors
-prevButton.style.backgroundColor = "#EB455F";
-nextButton.style.backgroundColor = "#EB455F";
-closeBtn.style.backgroundColor = "#EB455F";
-modeToggle.onclick = function () {
+setButtonColor([prevButton, nextButton, closeBtn], "#EB455F");
+
+const setColors = (
+  textColor,
+  headerBgColor,
+  headerTextColor,
+  buttonColor,
+  dropLineColor,
+  logoSrc,
+  tooltipColor,
+  heroImgSrc,
+  svgSrc
+) => {
+  textElements.forEach((text) => (text.style.color = textColor));
+  header.style.backgroundColor = headerBgColor;
+  header.style.color = headerTextColor;
+  setButtonColor([prevButton, nextButton, closeBtn], buttonColor);
+  dropLine.style.borderColor = dropLineColor;
+  Array.from(logoImgs).forEach((logo) => (logo.src = logoSrc));
+  tooltips.forEach((tooltip) => (tooltip.style.color = tooltipColor));
+  heroImg.src = heroImgSrc;
+  document.getElementById("svg").setAttribute("data", svgSrc);
+};
+
+modeToggle.onclick = () => {
   document.body.classList.toggle("dark-theme");
 
   if (document.body.classList.contains("dark-theme")) {
     // Dark mode
-    floatbtn.style.backgroundColor = "#08c391";
-    floatbtn.style.boxShadow = "0 10px 25px -5px rgba(32, 255, 195)";
-
-    hero_img.src = "Images/output-onlinegiftools.gif";
-    for (var i = 0; i < text.length; i++) {
-      text[i].style.color = "#08C391";
-    }
-    header.style.backgroundColor = "#212830";
-    header.style.color = "#ffffff";
-    prevButton.style.backgroundColor = "#08C391";
-    closeBtn.style.backgroundColor = "#08C391";
-    nextButton.style.backgroundColor = "#08C391";
-    dropLine.style.borderColor = "white";
-    // resumedrop.style.backgroundColor = "#08C391";
+    floatBtn.style.backgroundColor = "#08c391";
+    floatBtn.style.boxShadow = "0 10px 25px -5px rgba(32, 255, 195)";
+    setColors(
+      "#08C391",
+      "#212830",
+      "#ffffff",
+      "#08C391",
+      "white",
+      "Images/Untitled_design__2_-removebg-preview.png",
+      "white",
+      "Images/Untitled_design__2_-removebg-preview.png",
+      "wave2.svg"
+    );
     document.documentElement.style.setProperty(
       "--light-gradient1",
       "rgba(2,0,36,1)"
@@ -128,31 +143,23 @@ modeToggle.onclick = function () {
       "--scrollbar-thumb-color",
       "#08C391"
     );
-    document.getElementById("svg").setAttribute("data", "wave2.svg");
     moonIcon.style.display = "none";
     sunIcon.style.display = "inline";
-    for (var i = 0; i < logoimgs.length; i++) {
-      var logoimg = logoimgs[i];
-      logoimg.src = "Images/Untitled_design__2_-removebg-preview.png";
-    }
-    tooltips.forEach((tooltip) => {
-      tooltip.style.color = "white";
-    });
-    hero_img.src = "Images/Untitled_design__2_-removebg-preview.png";
   } else {
     // Light mode
-    floatbtn.style.backgroundColor = "#eb455f";
-    floatbtn.style.boxShadow = "";
-    for (var i = 0; i < text.length; i++) {
-      text[i].style.color = "#EB455F";
-    }
-    header.style.backgroundColor = "#ffffff";
-    prevButton.style.backgroundColor = "#EB455F";
-    nextButton.style.backgroundColor = "#EB455F";
-    closeBtn.style.backgroundColor = "#EB455F";
-    dropLine.style.borderColor = "black";
-
-    // resumedrop.style.backgroundColor = "#EB455F";
+    floatBtn.style.backgroundColor = "#eb455f";
+    floatBtn.style.boxShadow = "";
+    setColors(
+      "#EB455F",
+      "#ffffff",
+      "#000000",
+      "#EB455F",
+      "black",
+      "Images/Untitled_design-removebg-preview.png",
+      "black",
+      "Images/Untitled_design-removebg-preview.png",
+      "wave1.svg"
+    );
     document.documentElement.style.setProperty(
       "--light-gradient1",
       "rgba(41,45,62,1)"
@@ -165,169 +172,53 @@ modeToggle.onclick = function () {
       "--scrollbar-thumb-color",
       "#EB455F"
     );
-    hero_img.src = "Images/Untitled_design-removebg-preview.png";
-
-    document.getElementById("svg").setAttribute("data", "wave1.svg");
     moonIcon.style.display = "inline";
     sunIcon.style.display = "none";
-    for (var i = 0; i < logoimgs.length; i++) {
-      var logoimg = logoimgs[i];
-      logoimg.src = "Images/Untitled_design-removebg-preview.png";
-    }
-    tooltips.forEach((tooltip) => {
-      tooltip.style.color = "black";
-    });
   }
 };
-// Function to observe the skill section
-function observeSkillSection() {
-  const mySkillsSection = document.querySelector("#my_skills");
-
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.5,
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        startFillAnimation(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, options);
-
-  observer.observe(mySkillsSection);
-}
-
-function startFillAnimation(section) {
-  const fillBars = section.querySelectorAll(".fill-bar");
-  fillBars.forEach((fillBar) => {
-    fillBar.classList.add("animate");
-  });
-}
-observeSkillSection();
 
 // pagination
-var currentPage = 1;
-var projects = document.querySelectorAll(".grid-item");
+let currentPage = 1;
+const projects = document.querySelectorAll(".grid-item");
 
-function showPage(page) {
-  var projectsPerPage = getProjectsPerPage();
-  var startIndex = (page - 1) * projectsPerPage;
-  var endIndex = startIndex + projectsPerPage;
+const showPage = (page) => {
+  const projectsPerPage = getProjectsPerPage();
+  const startIndex = (page - 1) * projectsPerPage;
+  const endIndex = startIndex + projectsPerPage;
 
-  projects.forEach(function (project, index) {
-    if (index >= startIndex && index < endIndex) {
-      project.style.display = "block";
-    } else {
-      project.style.display = "none";
-    }
+  projects.forEach((project, index) => {
+    project.style.display =
+      index >= startIndex && index < endIndex ? "block" : "none";
   });
-}
+};
 
-function goToPreviousPage() {
+const goToPreviousPage = () => {
   if (currentPage > 1) {
     currentPage--;
     showPage(currentPage);
   }
-}
+};
 
-function goToNextPage() {
-  var totalPages = Math.ceil(projects.length / getProjectsPerPage());
+const goToNextPage = () => {
+  const totalPages = Math.ceil(projects.length / getProjectsPerPage());
   if (currentPage < totalPages) {
     currentPage++;
     showPage(currentPage);
   }
-}
+};
 
-function getProjectsPerPage() {
-  return window.innerWidth <= 768 ? 2 : 3;
-}
+const getProjectsPerPage = () => (window.innerWidth <= 768 ? 2 : 3);
 
 // Show the first page initially
 showPage(currentPage);
+
 document.getElementById("prevPage").addEventListener("click", goToPreviousPage);
 document.getElementById("nextPage").addEventListener("click", goToNextPage);
-window.addEventListener("resize", function () {
-  showPage(currentPage);
-});
 
-// float
-document.querySelector(".floating-btn").addEventListener("click", function () {
-  var elementContainer = document.querySelector(".element-container");
-  elementContainer.classList.toggle("open");
+window.addEventListener("resize", () => showPage(currentPage));
+
+// Floating button functionality
+document.querySelector(".floating-btn").addEventListener("click", () => {
+  document.querySelector(".element-container").classList.toggle("open");
   document.querySelector(".floating-container").classList.toggle("expanded");
 });
-
-// driver
-// const driver = window.driver.js.driver;
-// if (window.innerWidth >= 700) {
-//   const driverObj = driver({
-//     popoverClass: "driverjs-theme",
-//     showProgress: true,
-//     steps: [
-//       {
-//         element: ".textbox",
-//         popover: {
-//           title: "Hey! Welcome to my Portfolio",
-//           description:
-//             "Explore my work and projects to learn more about what I do.",
-//         },
-//       },
-//       {
-//         element: "#mylinks",
-//         popover: {
-//           title: "Navigation Links",
-//           description: "These are the links to navigate through the portfolio.",
-//           side: "bottom",
-//           align: "center",
-//         },
-//       },
-//       {
-//         element: ".action_btn",
-//         popover: {
-//           title: "Resume",
-//           description: "Click here to view my resume ",
-//         },
-//       },
-//     ],
-//   });
-
-//   function startGuidedTour() {
-//     driverObj.drive();
-//   }
-
-//   setTimeout(startGuidedTour, 2000);
-// }
-// // else {
-// //   const driver = window.driver.js.driver;
-// //   const driverObj = driver({
-// //     steps: [
-// //       {
-// //         element: ".textbox",
-// //         popover: {
-// //           title: "Hey! Welcome to my Portfolio",
-// //           description:
-// //             "Explore my work and projects to learn more about what I do.",
-// //           side: "bottom",
-// //           align: "center",
-// //         },
-// //       },
-// //       {
-// //         element: ".toggle_btn",
-// //         popover: {
-// //           title: "Menu",
-// //           description: "Click here to access the mobile menu for navigation.",
-// //         },
-// //       },
-// //     ],
-// //   });
-
-// //   function startGuidedTour() {
-// //     driverObj.drive();
-// //   }
-
-// //   setTimeout(startGuidedTour, 2000);
-// // }
