@@ -380,8 +380,8 @@ header {
   left: 54%;
 }
 #hero-img {
-  height: 450px;
-  bottom: 35px;
+  height: 480px;
+  bottom: 30px;
 }
 
 .textbox .btn {
@@ -558,6 +558,9 @@ header {
   }
   #hero {
     padding: 149px 150px 220px 60px;
+  }
+  .logo-img {
+    display: none;
   }
 }
 

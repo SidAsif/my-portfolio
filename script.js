@@ -80,7 +80,7 @@ var sunIcon = document.querySelector(".fa-solid.fa-sun");
 var floatbtn = document.querySelector(".floating-btn");
 var logoimgs = document.getElementsByClassName("logo-img");
 const tooltips = document.querySelectorAll(".contact_icon .tooltip");
-
+var heroimg = document.getElementById("hero-img");
 // var resumedrop = document.getElementsByClassName("resume-list");
 var dropLine = document.getElementById("drop-line");
 // Function to handle hover effect
@@ -138,6 +138,7 @@ modeToggle.onclick = function () {
     tooltips.forEach((tooltip) => {
       tooltip.style.color = "white";
     });
+    hero_img.src = "Images/Untitled_design__2_-removebg-preview.png";
   } else {
     // Light mode
     floatbtn.style.backgroundColor = "#eb455f";
@@ -164,6 +165,8 @@ modeToggle.onclick = function () {
       "--scrollbar-thumb-color",
       "#EB455F"
     );
+    hero_img.src = "Images/Untitled_design-removebg-preview.png";
+
     document.getElementById("svg").setAttribute("data", "wave1.svg");
     moonIcon.style.display = "inline";
     sunIcon.style.display = "none";
