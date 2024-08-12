@@ -366,6 +366,7 @@ header {
   position: absolute;
   bottom: 130px;
   right: 100px;
+  animation: slideLeft 1s ease forwards;
 }
 .img-box img {
   height: 100%;
